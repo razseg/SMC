@@ -124,30 +124,7 @@ def findX(g,root,k,Avilabilty):
     return vec[int(R)]
         
     
-    # LoadSum=sumLoad(g)
-    # minLink,maxLink = minMaxLink(g)
-    # print("minlink: "+str(minLink)+" maxLink: "+str(maxLink)+" load: "+str(LoadSum))
-    # # BNalg.run(g,root,k,int(LoadSum/2))
-    # L=1/maxLink
-    # R=LoadSum/minLink
-    # # rounds=0
-    # while L <= R and  (R-L)>= 1/maxLink:#rounds<2:
-    #     Avilabilty=AvalbiltyCalc(g,cap)
-    #     BNalg.run(g,root,k,((L+R)/2),Avilabilty)
-    #     print('X: '+str((L+R)/2)+' R: '+str(R)+' L: '+str(L))
-    #     if g.nodes[0]['minSend']['k'+str(k)]['bn']:
-    #         # if R != ((L+R)/2):
-    #             R=((L+R)/2)
-    #     else:
-    #         # if L != (((L+R)/2)):
-    #             L=(((L+R)/2))
-    # # for i in range(0,LoadSum+1):
-    # #     BNalg.run(g,root,k,i)
-    # #     if 
-    # BNalg.run(g,root,k,L,Avilabilty)
-    # if g.nodes[0]['minSend']['k'+str(k)]['bn']:
-    #     return L
-    # return R
+
 
 def SerchVector(g,root):
     LoadSum=sumLoad(g)
@@ -430,19 +407,7 @@ def LevelJobColor(g,root,k,load,Avalibily):
     addLoad(g,load,leafL)
     level=int(math.log(k,2))
     levelC=pickRamdonLevel(level,Avalibily,k)
-    # levelC=LevelColor(level)
-    # flag=True
-    # while flag:
-    #     count=0
-    #     for node in levelC:
-    #         if Avalibily[node] == False:
-    #             level=level+1
-    #             levelC=LevelColor(level)
-    #             count=0
-    #             break
-    #         count=count+1
-    #     if count == len(levelC):
-    #         flag=False
+
     g=plot_coloring(g,levelC)
     return [g,levelC]
 
@@ -1143,21 +1108,7 @@ def MutliJobFixCapAlgVS(weight,expNum,cap):
 def MutliJobMultiCapAlgVS_plots(dstDir,path,distrebutions,wieght):
     os.chdir('.\\'+dstDir)
     
-    # path="C:\\Users\\Segal Raz\\OneDrive - post.bgu.ac.il\\Documents\\master\\Multi_FixedCap_load_power_distrebutionRuns_10_tree_256\\"
-    
-    # path="C:\\Users\\Segal Raz\\OneDrive - post.bgu.ac.il\\Documents\\master\\Multi_FixedCap_load_uni_Coin_distrebutionRuns_10_tree_256"
-    # path="C:\\Users\\Segal Raz\\OneDrive - post.bgu.ac.il\\Documents\\master\\Multi_load_linear_distrebutionRuns_5_tree_256\\"
-    # path="C:\\Users\\Segal Raz\\OneDrive - post.bgu.ac.il\\Documents\\master\\Multi_load_Power_distrebutionRuns_5_tree_256\\"
-    # path="C:\\Users\\Segal Raz\\OneDrive - post.bgu.ac.il\\Documents\\master\\Multi_load_distrebutionRuns_5_tree_256\\"
-    # path="C:\\Users\\Segal Raz\\OneDrive - post.bgu.ac.il\\Documents\\master\\wietghed_power_distrebutionRuns_5_tree_256\\"
-    # path="C:\\Users\\Segal Raz\\OneDrive - post.bgu.ac.il\\Documents\\master\Multi_load_wieght_1_distrebutionRuns_tree_256\\"
-    
-    
-    # path="C:\\Users\\Segal Raz\\OneDrive - post.bgu.ac.il\\Documents\\master\\Multi_FixedCap32_load_uni_distrebutionRuns_10_tree_256\\"
-    # file=open(path+'\\Results.txt')
-    # res=ast.literal_eval(file.read())
-    # distrebutions=['Mixed','Uniform1','Uniform2','PowerLaw1']
-    # distrebutions=['Coin']
+
     for disrebution in distrebutions:
         directory_contents=os.listdir(path+'\\'+disrebution)
         data={}
@@ -1731,185 +1682,38 @@ def AlgOptWieghts_plots(dstDir,path,distrebutions,wieght,scale='allRed'):
         plt.ylabel(r'Normalized Congestion',fontsize=18)
         plt.savefig("Weighted_Util_Opt_count_distribution_"+disrebution+"_scale_"+scale+"_SOAR_bold.pdf",bbox_inches='tight')
 
-    # plt.plot(sample,messageExpAlg[0],'--',marker='o',label='Truffel')
-    # plt.plot([0,1,3,7,15,31],[sum(data['messgageNumOpt'])/len(data['messgageNumOpt'])/scaleFactor for x in range(0,len(sample))],'b',label='All blue',)
-    # plt.plot([0,1,3,7,15,31],[sum(data['messgageNumZero'])/len(data['messgageNumZero'])/scaleFactor for x in range(0,len(sample))],'r',label='All red')
-    # plt.plot([0,1,3,7,15,32],[(sum(data['BnCountOpt'])/len(data['BnCountOpt']))/(sum(data['BnCountZero'])/len(data['BnCountZero'])) for x in range(0,len(sample))],'b',lw=3,label='All blue',)
-    # plt.plot([0,1,3,7,15,32],[1 for x in range(0,len(sample))],'r',lw=3,label='All red')
 
-    # if scale == 'alg':
-    #     s=[]    
-    #     for x in scaleFactor:
-    #         s.append([x[i] for i in [0,1,3,5,7,9]])
-    #     sF=s
-    # else:
-    #     sF=scaleFactor
-    # meanLevel,varLevel=CalcMeanVarCap(data['BnExpLevel'],sF)
-    # plt.errorbar(sample, [x for x in meanLevel], yerr=[x for x in varLevel],lw=3,ls='-.',markersize=12,marker='x',label='Level')
-    
-    # meanMax,varMax=CalcMeanVarCap(data['BnExpMax'],sF)
-    # plt.errorbar(sample, [x for x in meanMax], yerr=[x for x in varMax],ls=':',lw=3,marker='s',markersize=12,label='Max')
-    # if scale == 'alg':
-    #     s=[]    
-    #     for x in scaleFactor:
-    #         s.append([x[i] for i in [0,1,3,5,7,9]])
-    #     sF=s
-    # else:
-    #     sF=scaleFactor
-    # meanTop,varTop=CalcMeanVarCap(data['BnExpTop'],sF)
-    # plt.errorbar(sample, [x for x in meanTop], yerr=[x for x in varTop],lw=3,ls='--',marker='^',markersize=12,label='Top')
-
-
-    # meanAlg,varAlg=CalcMeanVarCap(data['BnCountZero'],scaleFactor)
-    # plt.errorbar(sample, [x for x in meanAlg], yerr=[x for x in varAlg],lw=3,ls='--',color='r',markersize=12,marker='-',label='All red')
-    # plt.plot(sample,BnExpLevel[0],'-',marker='x',label='Level')
-    # plt.plot(sample,BnExpMax[0],'-.',marker='s',label='Max')
-    # plt.plot([1,3,7,15,31],BnExpTop[0],'--',marker='^',label='Top')
-    # dec={'Uniform2':{'marker': 'o','line':'--'},
-    #      'PowerLaw1':{'marker': 's','line':':'}}
-    # plt.grid(True, which="both", ls="-")
-    # plt.xlabel(r"Number of blue nodes ($k$)",fontsize=18)
-    # plt.ylabel(r'Normalized Congestion',fontsize=18)
-    # for disrebution in distrebutions:
-    #     zero=[]    
-    #     for i in data[disrebution]['BnCountZero']:
-    #             st=[]
-    #             for j in sample:
-    #                 st.append(i)
-    #             zero.append(st)
-    
-    #     if scale == 'alg':
-    #         Loc='upper left'
-    #         meanAlg,varAlg=CalcMeanVarCap(data['BnExpAlg'],scaleFactor)
-    #         plt.errorbar(sample, [x for x in meanAlg], yerr=[x for x in varAlg],color='b',lw=3,ls='-',markersize=12,label='SMC')
-    #         meanAlg,varAlg=CalcMeanVarCap(s,scaleFactor)
-    #         plt.errorbar(sample, [x for x in meanAlg], yerr=[x for x in varAlg],lw=3,color='r',ls=':',markersize=12,label='All red')
-    #         ax.set_yscale('log',base=2)
-    #         ax.set_ylim(0,16)
-    #         ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda y,pos: ('{{:.{:1d}f}}'.format(int(np.maximum(-np.log10(y),0)))).format(y)))
-    #     else:
-    #         Loc='upper right'
-            
-    #         # ax.set_ylim(ymin=0)
-            
-    #         meanAlg,varAlg=CalcMeanVarCap(data[disrebution]['BnExpAlg'],sF)
-    #         name=disrebution.replace("1","")
-    #         name=name.replace("2","")
-    #         plt.errorbar(sample, [x for x in meanAlg], yerr=[x for x in varAlg],lw=3,ls=dec[disrebution]['line'],markersize=12,marker=dec[disrebution]['marker'],label=name)
-    #         meanAlg,varAlg=CalcMeanVarCap(zero,sF)
-    #         name=disrebution.replace("1","")
-    #         name=name.replace("2","")
-    #         plt.errorbar(sample, [x for x in meanAlg], yerr=[x for x in varAlg],lw=3,color='r',ls=dec[disrebution]['line'],markersize=12,label=name+'- all red')
-    # plt.plot(sample,[1 for x in range(0,len(sample))],'b',lw=3,label='All Blue')
-    # # ax.set_yscale('log')
-    # ax.set_ylim(0)
-    
-    #     # ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda y,pos: ('{{:.{:1d}f}}'.format(int(np.maximum(-np.log10(y),0)))).format(y)))
-    # ax.set_xlim(xmin=0)
-   
-    
-    
-    # plt.legend(loc=Loc,fontsize=12,ncol=1)
-    # # plt.title("Message count- distribution: "+str(d[0])+", "+str(len(messageExpAlg))+" experments")
-    # # plt.savefig("Weighted_Util_Multi_count_distribution_"+disrebution+"_scale_allRed_SOAR.pdf",bbox_inches='tight')
-    # plt.savefig("Weighted_Util_"+wieght+"_count_distribution_"+disrebution+"_scale_"+scale+"_SOAR_bold.pdf",bbox_inches='tight')
     os.chdir('..')
     os.chdir('..')
 
 # weight='uniform'
-expNum=10
+# expNum=10
 
-dstDir='InfoCom_figs'
-path="C:\\Users\\Segal Raz\\OneDrive - post.bgu.ac.il\\Documents\\master\\"
-distrebutions=['Mixed','Uniform1','Uniform2','Skewed','PowerLaw1','PowerLaw3','PowerLaw2']
-# distrebutions=['PowerLaw2']
-weights=['uniform','power','linear']
-# weights=['power']
-for weight in weights:
-    # AlgVS(weight,expNum)
-    name='Bottleneck_wietghed_'+weight+'_distrebutionRuns_'+str(expNum)+'_tree_256\\'
-    # AlgVS_plots(dstDir+'\\AlgVs',path+name,distrebutions,weight,'allRed')
-    AlgVS_plots(dstDir+'\\AlgVs',path+name,distrebutions,weight,'alg') 
-    AlgOpt_plots(dstDir+'\\AlgOpt',path+name,distrebutions,weight,'opt')
-# AlgOptWieghts_plots(dstDir+'\\AlgOpt',path,distrebutions,weights,scale='allRed')
-cap=4
+# dstDir='InfoCom_figs'
+# path=""
+# distrebutions=['Mixed','Uniform1','Uniform2','Skewed','PowerLaw1','PowerLaw3','PowerLaw2']
+# # distrebutions=['PowerLaw2']
+# weights=['uniform','power','linear']
+# # weights=['power']
+# for weight in weights:
+    # # AlgVS(weight,expNum)
+    # name='Bottleneck_wietghed_'+weight+'_distrebutionRuns_'+str(expNum)+'_tree_256\\'
+    # # AlgVS_plots(dstDir+'\\AlgVs',path+name,distrebutions,weight,'allRed')
+    # AlgVS_plots(dstDir+'\\AlgVs',path+name,distrebutions,weight,'alg') 
+    # AlgOpt_plots(dstDir+'\\AlgOpt',path+name,distrebutions,weight,'opt')
+# # AlgOptWieghts_plots(dstDir+'\\AlgOpt',path,distrebutions,weights,scale='allRed')
+# cap=4
 
-distrebutions=['Coin']
-for weight in weights:
-    # MutliJobFixCapAlgVS(weight,expNum,cap)
-    name='Multi_FixedCapT'+str(cap)+'_load_'+str(weight)+'_distrebutionRuns_'+str(expNum)+'_tree_256\\'
-    MutliJobFixCapAlgVS_plots(dstDir+'\\MultiloadFixedCap',path+name,distrebutions,weight) 
-caps=[4,8,16,32]
-for weight in weights:
-    # MultiJobsMultiCap(weight,expNum,caps)
-    name='Multi_MultiCapT'+str(max(caps))+'_load_'+str(weight)+'_distrebutionRuns_'+str(expNum)+'_tree_256\\'
-    # MutliJobMultiCapAlgVS_plots(dstDir+'\\MultiloadMultiCap',path+name,distrebutions,weight) 
+# distrebutions=['Coin']
+# for weight in weights:
+    # # MutliJobFixCapAlgVS(weight,expNum,cap)
+    # name='Multi_FixedCapT'+str(cap)+'_load_'+str(weight)+'_distrebutionRuns_'+str(expNum)+'_tree_256\\'
+    # MutliJobFixCapAlgVS_plots(dstDir+'\\MultiloadFixedCap',path+name,distrebutions,weight) 
+# caps=[4,8,16,32]
+# for weight in weights:
+    # # MultiJobsMultiCap(weight,expNum,caps)
+    # name='Multi_MultiCapT'+str(max(caps))+'_load_'+str(weight)+'_distrebutionRuns_'+str(expNum)+'_tree_256\\'
+    # # MutliJobMultiCapAlgVS_plots(dstDir+'\\MultiloadMultiCap',path+name,distrebutions,weight) 
 
-MutliJobMultiCapAlg_plots(dstDir+'\\AlgOpt',path,distrebutions,weights)
-# X=7 
-# k=1
-# # g=nx.read_adjlist("Test_Tree.txt",create_using=nx.DiGraph,nodetype=int)
-# deg=2
-# h=7
-# distrbution=paseDistrebution('distrebutions.txt')
-# cap=1
-# dis=distrbution[5]
-# # for i in range(0,50):
-# g=nx.balanced_tree(deg,h,create_using=nx.DiGraph)
-# # loadDist=list(np.random.permutation([1,1,2,2,2,2,3,3]))
-# loadDist=list(np.random.permutation(dis[1]))
-# root=0
-# leafL=leafList(g)
-# addLoad(g,loadDist,leafL)
-# Add_InNetwork_Capacity(g)
-# AddWieghtToEges(g,root,"linear")
-# # x=findXnew(g,root,k,cap)
-# Avilabilty=AvalbiltyCalc(g,1)
-# X=findX(g,root,k,Avilablity)
-# print('X: '+str(X))
-# # Walg.run(g,root,k)
-# # g=plot_coloring(g,[11,12,13,14])
-# # Walg.NewColoring(g,root,root,0,k)
-# # GtoFile(g,"Eample_X_"+str(X))
-# Avilabilty=AvalbiltyCalc(g,cap)
-# BNalg.run(g,root,k,X,Avilabilty)
-# BNalg.NewColoring(g,root,root,k,X)
-# Walg.messageCount(g,root)
-# SumMessage,BottleNeck=NetworkUtiliztion(g)
-# # BNalg.run(g,root,k,82.8,Avilabilty)
-# # if round(SumMessage,8) != round(g.nodes[root]['minSend']['l0']['k'+str(k)],8):
-# #     print("Error")
-#     # break
-
-# # # BootleNALG[dis[0]]['SumMessage']=SumMessage
-# # # BootleNALG[dis[0]]['BottleNeck']=BottleNeck
-# plt.figure(0)
-# plt.title('Toy example,BN alg, number of Utilization: '+str(SumMessage)+' ,bottle neck: '+str(BottleNeck))
-# labels = nx.get_node_attributes(g, 'load') 
-# # nx.draw(g,pos=graphviz_layout(g, prog="dot"),with_labels=True)
-# nx.draw(g,pos=graphviz_layout(g, prog="dot"),labels=labels)
-# nx.draw(g,pos=graphviz_layout(g, prog='dot'),node_color=colorMap(g),labels=labels)
-# edge_labels={}
-# for e in g.edges:
-#     edge_labels[e]={'e':e,'w':g.edges[e]['Wieght'],'m':g.edges[e]['mesageCount']}
-# edge_labels = nx.get_edge_attributes(g,'Wieght')
-# pos=graphviz_layout(g,prog='dot')
-# nx.draw_networkx_edge_labels(g, pos, edge_labels = edge_labels,rotate=False)
-
-# gr=plot_coloring(g,MaxColor(k, g, leafL))
-# Walg.messageCount(gr,root)
-# SumMessage,BottleNeck=NetworkUtiliztion(gr)
-
-# plt.figure(1)
-# plt.title('max, number of Utilization: '+str(SumMessage)+' ,bottle neck: '+str(BottleNeck))
-# labels = nx.get_node_attributes(gr, 'load') 
-# nx.draw(gr,pos=graphviz_layout(gr, prog="dot"),node_color=colorMap(gr),with_labels=True)
-# # nx.draw(g,pos=graphviz_layout(g, prog="dot"),labels=labels)
-# # nx.draw(g,pos=graphviz_layout(g, prog='dot'),node_color=colorMap(g),labels=labels)
-# edge_labels={}
-# for e in g.edges:
-#     edge_labels[e]={'w':gr.edges[e]['Wieght'],'m':gr.edges[e]['mesageCount']}
-# # edge_labels = nx.get_edge_attributes(g,'Wieght')
-# pos=graphviz_layout(gr,prog='dot')
-# nx.draw_networkx_edge_labels(gr, pos, edge_labels = edge_labels,rotate=True)
+# MutliJobMultiCapAlg_plots(dstDir+'\\AlgOpt',path,distrebutions,weights)
 
