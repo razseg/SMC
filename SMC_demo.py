@@ -16,8 +16,8 @@ def JobColor(g,root,k,loadfile):
     AddWieghtToEges(g,root,'uniform')
     Add_InNetwork_Capacity(g)
     avalabilty=AvalbiltyCalc(g,1)
-    soar.gather(g,root,k,avalabilty)
-    coloring=soar.color(g,root,root,0,k)
+    smc.nodeRun(g,root,k,avalabilty)
+    coloring=smc.NewColoring(g,root,root,0,k)
     return [g,coloring]
 
 def addLoad(g,load,nodesList):
