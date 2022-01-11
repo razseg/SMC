@@ -4,7 +4,7 @@ Created on Tue Jan 11 21:59:31 2022
 
 @author: Segal Raz
 """
-import SMC_control
+import SMC_control as smc
 import argparse
 import networkx as nx
 from networkx.drawing.nx_agraph import graphviz_layout
@@ -13,9 +13,9 @@ def JobColor(g,root,k,loadfile):
     # leafL=leafList(g)
     nodeList,load =readLoad(loadfile)
     addLoad(g,load,nodeList)
-    AddWieghtToEges(g,root,'uniform')
-    Add_InNetwork_Capacity(g)
-    avalabilty=AvalbiltyCalc(g,1)
+    smc.AddWieghtToEges(g,root,'uniform')
+    smc.Add_InNetwork_Capacity(g)
+    smc.avalabilty=AvalbiltyCalc(g,1)
     smc.nodeRun(g,root,k,avalabilty)
     coloring=smc.NewColoring(g,root,root,0,k)
     return [g,coloring]
