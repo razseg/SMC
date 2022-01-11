@@ -17,8 +17,6 @@ import os
 import string
 import copy
 import InfoCom_functions as BNalg
-import LoadAlgNew as Lalg
-import LoadOnEdgesAlg as Walg
 import ast
 import random
 import matplotlib.ticker as ticker
